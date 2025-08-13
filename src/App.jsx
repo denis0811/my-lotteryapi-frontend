@@ -13,7 +13,7 @@ export default function App() {
     setError(null);
     try {
       // NOTE: You must replace this URL with the actual URL of your deployed Python API.
-      const response = await fetch('https://my-lottery-api.onrender.com/api/lottery-numbers'); 
+      const response = await fetch('https://my-lottery-api.onrender.com/api/lottery-numbers');
       if (!response.ok) {
         throw new Error('Failed to fetch lottery numbers.');
       }
