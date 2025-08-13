@@ -12,7 +12,7 @@ export default function App() {
     setError(null);
     try {
       // NOTE: Replace this URL with your live Render API URL after deployment
-      const response = await fetch('http://localhost:8000/api/lottery-numbers'); 
+      const response = await fetch('https://my-lottery-api.onrender.com'); 
       if (!response.ok) {
         throw new Error('Failed to fetch lottery numbers.');
       }
