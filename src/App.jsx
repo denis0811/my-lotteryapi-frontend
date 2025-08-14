@@ -12,8 +12,10 @@ export default function App() {
     setLoading(true);
     setError(null);
     try {
-      // NOTE: You must replace this URL with the actual URL of your deployed Python API.
-      const response = await fetch('https://my-lottery-api.onrender.com/api/lottery-numbers'); 
+      // THIS is the crucial change. We use the correct backend URL.
+      // The backend must be configured to allow CORS requests from your frontend domains.
+      const response = await fetch('https://lottery-fastapi-backend.onrender.com/api/lottery-numbers');
+      
       if (!response.ok) {
         throw new Error('Failed to fetch lottery numbers.');
       }
