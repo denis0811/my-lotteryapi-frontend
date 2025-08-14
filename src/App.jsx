@@ -7,26 +7,13 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Determine the API URL based on the current window's location.
-  // This is a robust way to handle both the custom domain and the Render URL.
-  const getApiUrl = () => {
-    // If the window's hostname is `seale.dev`, use the custom domain.
-    // Otherwise, use the Render URL.
-    if (window.location.hostname === 'seale.dev' || window.location.hostname === 'www.seale.dev') {
-      return 'https://lottery-fastapi-backend.onrender.com/api/lottery-numbers';
-    }
-    return 'https://lottery-fastapi-backend.onrender.com/api/lottery-numbers';
-  };
-
   // Function to fetch lottery numbers from the API
   const fetchLotteryNumbers = async () => {
     setLoading(true);
     setError(null);
     try {
-      const apiUrl = getApiUrl();
-      // Use the dynamically determined API URL
-      const response = await fetch(apiUrl);
-      
+      // NOTE: You must replace this URL with the actual URL of your deployed Python API.
+      const response = await fetch('https://my-lottery-api.onrender.com/api/lottery-numbers'); 
       if (!response.ok) {
         throw new Error('Failed to fetch lottery numbers.');
       }
