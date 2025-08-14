@@ -12,15 +12,15 @@ export default function App() {
     setLoading(true);
     setError(null);
     try {
-      // THIS is the crucial change. We use the correct backend URL.
-      // The backend must be configured to allow CORS requests from your frontend domains.
-      const response = await fetch('https://lottery-fastapi-backend.onrender.com/api/lottery-numbers');
+      // THIS IS THE CRUCIAL CHANGE:
+      // We are using the correct backend URL from your Render settings.
+      const response = await fetch('https://my-lottery-api.onrender.com/api/lottery-numbers');
       
       if (!response.ok) {
         throw new Error('Failed to fetch lottery numbers.');
       }
       const data = await response.json();
-      // The API now returns two keys: main_numbers and lucky_stars
+      // The API returns two keys: main_numbers and lucky_stars
       setMainNumbers(data.main_numbers);
       setLuckyStars(data.lucky_stars);
     } catch (err) {
